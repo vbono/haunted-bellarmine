@@ -39,11 +39,11 @@ public class Help {
 		System.out.println("|                      |                         |");
 		System.out.println("|      president's     |    hall of presidents   |");
 		System.out.println("|         study        |                         |");
-		System.out.println("|                      |   | stairs |            |         *");
-		System.out.println("|______________________|_________________________|        * *");
+		System.out.println("|                      |   | stairs |            |");
+		System.out.println("|______________________|_________________________|");
 		System.out.println("                    |     |");
-		System.out.println("                   /       \\ ");
-		System.out.println("                  (         ) ");
+		System.out.println("                   /       \\                               *");
+		System.out.println("                  (         )                             * *");
 		System.out.println("                   \\       /  ");
 		
 		// add more things as u go
