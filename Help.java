@@ -2,7 +2,7 @@ package milestone1package;
 
 public class Help {
 
-	public void helpMe() {
+	public static void helpMe() {
 		
 		System.out.println("I know everything. Well, I know a lot things. Like places, actions, and objects. To move\n"
 				+ "try keywords like EAST, WEST, NORTH, SOUTH, UP, DOWN, ENTER, etc. Some objects require\n"
@@ -12,7 +12,7 @@ public class Help {
 		
 	}
 	
-	public void map() {
+	public static void map() {
 		System.out.println("");
 		System.out.println("Here's a map to help you navigate!");
 		System.out.println("Basement:");
