@@ -37,37 +37,53 @@ public class Location {
 	public void move(String direction) {
 		
 		switch (currentLocation) {
-		case MANSION:
-			mansionMove(direction);
-			break;
-		case FOREST:
-			forestMove(direction);
-			break;
-		case ZEN_GARDEN:
-			zenGMove(direction);
-			break;
-		case STUDY:
-			studyMove(direction);
-			break;
-		case GREAT_HALL:
-			greatHMove(direction);
-			break;
-		case PRESIDENTS_HALL:
-			presidentsHMove(direction);
-			break;
-		case ART_MUSEUM:
-			museumMove(direction);
-			break;
-		case STORAGE:
-			storageMove(direction);
-			break;
-		case DUNGEON:
-			dungeonMove(direction);
-			break;
-			/*
+			case START:
+				startMove(direction);
+				break;
+			case MANSION:
+				mansionMove(direction);
+				break;
+			case FOREST:
+				forestMove(direction);
+				break;
+			case ZEN_GARDEN:
+				zenGMove(direction);
+				break;
+			case STUDY:
+				studyMove(direction);
+				break;
+			case GREAT_HALL:
+				greatHMove(direction);
+				break;
+			case PRESIDENTS_HALL:
+				presidentsHMove(direction);
+				break;
+			case ART_MUSEUM:
+				museumMove(direction);
+				break;
+			case STORAGE:
+				storageMove(direction);
+				break;
+			case DUNGEON:
+				dungeonMove(direction);
+				break;
 			default:
 				System.out.println("Did you type your word correctly?");
-			 */
+		}
+	}
+	
+	private void startMove(String direction) {
+		//Start();
+		
+		switch (direction) {
+			case MANSION:
+				Mansion();
+				currentLocation = MANSION;
+				break;
+			case FOREST:
+				Forest();
+				currentLocation = FOREST;
+				break;
 		}
 	}
 	
@@ -75,17 +91,22 @@ public class Location {
 		
 		switch (direction) {
 			case EAST:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			case ROOM:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 			case PRESIDENTS_HALL:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			case NORTH:
+				greatHall();
 				currentLocation = GREAT_HALL;
 				break;
 			case GREAT_HALL:
+				greatHall();
 				currentLocation = GREAT_HALL;
 				break;
 			case WEST:
@@ -100,21 +121,21 @@ public class Location {
 				break;
 				*/
 			default:
-				System.out.println("You can't get there yet!");
+				System.out.println("???");
 		}
 		
 	}
 	
 	private void forestMove(String direction) {
 		switch (direction) {
-		case STAIRS:
-			currentLocation = ZEN_GARDEN;
-			break;
-			/*
+			case STAIRS:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
+				break;
 			case BACK:
+				Start();
 				currentLocation = START;
 				break;
-			 */
 		default:
 			System.out.println("???");
 		}
@@ -124,6 +145,7 @@ public class Location {
 	private void zenGMove(String direction) {
 		switch (direction) {
 		case BACK:
+			Forest();
 			currentLocation = FOREST;
 			break;
 		default:
@@ -135,18 +157,23 @@ public class Location {
 	private void studyMove(String direction) {
 		switch (direction) {
 			case GREAT_HALL:
+				greatHall();
 				currentLocation = GREAT_HALL;
 				break;
 			case NORTH:
+				greatHall();
 				currentLocation = GREAT_HALL;
 				break;
 			case ROOM:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			case PRESIDENTS_HALL:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			case EAST:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			/*
@@ -162,12 +189,15 @@ public class Location {
 	private void greatHMove(String direction) { 
 		switch (direction) {
 			case ROOM:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			case PRESIDENTS_HALL:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			case SOUTH:
+				Mansion();
 				currentLocation = MANSION;
 				break;
 			case STUDY:
@@ -181,9 +211,11 @@ public class Location {
 	private void presidentsHMove(String direction) {
 		switch (direction) {
 			case NORTH:
+				greatHall();
 				currentLocation = GREAT_HALL;
 				break;
 			case GREAT_HALL:
+				greatHall();
 				currentLocation = GREAT_HALL;
 				break;
 			case EAST:
@@ -211,13 +243,18 @@ public class Location {
 			case NORTH:
 				currentLocation = STORAGE;
 				break;
+				/*
 			case BACK:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
+				*/
 			case STAIRS:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			case UPSTAIRS:
+				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			default:
@@ -253,84 +290,50 @@ public class Location {
 		
 	}
 	
-	/*
-	
-	public String startLocation() {
-		String command;
-		System.out.println("You are standing on a brick path. In front of you is a "
+	public void Start() {
+		System.out.println("You are standing on a brick path. In front of you is a \n"
 				+ "large mansion. To the east is a forest.");
-		command = s.nextLine();
-		return command;	
 	}
-	
-	public String forest() {
-		String command;
+	public void Forest() {
 		System.out.println("You are in the forest. There is a set of stairs.");
-		command = s.nextLine();
-		return command;	
-		
 	}
 	
-	public String zenGarden() {
-		String command;
-		System.out.println("Welcome to the Zen Garden!! Calming music is playing."
-				+ "There is a gentle stream flowing. And a bench. Have a rest.");
-		command = s.nextLine();
-		return command;	
+	public void zenGarden() {
+		System.out.println("Welcome to the Zen Garden!! Calming music is playing.\n"
+						+ "There is a gentle stream flowing. And a bench. Have a rest.");
 	}
 	
-	public String Mansion() {
-		String command;
-		System.out.println("You have entered Bellarmine Mansion. To the east is a room. To the north"
+	public void Mansion() {
+		System.out.println("You have entered Bellarmine Mansion. To the east is a room. To the north \n"
 				+ "is the Great Hall. To the west is the President's Study.");
-		command = s.nextLine();
-		return command;	
 	}
 	
-	public String Study() {
-		String command;
-		System.out.println("You are standing in the President's Study.");
-		command = s.nextLine();
-		return command;	
+	public void Study() {
+		System.out.println("You are standing in the President's Study.");	
 	}
 	
-	public String greatHall() {
-		String command;
+	public void greatHall() {
 		System.out.println("You are standing in the Great Hall.");
-		command = s.nextLine();
-		return command;	
 	}
 	
-	public String hallOfPresidents() {
-		String command;
-		System.out.println("You are standing in the Hall of President's past. There are"
+	public void presidentsHall() {
+		System.out.println("You are standing in the Hall of President's past. There are\n"
 				+ "dimly lit stairs leading to the basement.");
-		command = s.nextLine();
-		return command;	
 	}
 	
-	public String artMuseum() {
-		String command;
+	public void artMuseum() {
 		System.out.println("You have entered the Art Museum. To your west "
 				+ "there are two rooms.");
-		command = s.nextLine();
-		return command;	
 	}
 	
-	public String storageRoom() {
-		String command;
-		System.out.println("You are standing in the Storage Room.");
-		command = s.nextLine();
-		return command;	
+	public void storageRoom() {
+		System.out.println("You are standing in the Storage Room.");	
 	}
 	
-	public String dungeon() {
-		String command;
+	public void dungeon() {
 		System.out.println("YOU HAVE ENTERED THE DUNGEON. BEWARE.");
-		command = s.nextLine();
-		return command;	
 	}
-	*/
+
 	
 	
 
