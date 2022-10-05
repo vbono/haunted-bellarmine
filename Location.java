@@ -110,9 +110,11 @@ public class Location {
 				currentLocation = GREAT_HALL;
 				break;
 			case WEST:
+				Study();
 				currentLocation = STUDY;
 				break;
 			case STUDY:
+				Study();
 				currentLocation = STUDY;
 				break;
 				/*
@@ -136,6 +138,10 @@ public class Location {
 				Start();
 				currentLocation = START;
 				break;
+			case START:
+				Start();
+				currentLocation = START;
+				break;
 		default:
 			System.out.println("???");
 		}
@@ -145,6 +151,10 @@ public class Location {
 	private void zenGMove(String direction) {
 		switch (direction) {
 		case BACK:
+			Forest();
+			currentLocation = FOREST;
+			break;
+		case FOREST:
 			Forest();
 			currentLocation = FOREST;
 			break;
@@ -201,6 +211,7 @@ public class Location {
 				currentLocation = MANSION;
 				break;
 			case STUDY:
+				Study();
 				currentLocation = STUDY;
 				break;
 			default:
@@ -219,15 +230,23 @@ public class Location {
 				currentLocation = GREAT_HALL;
 				break;
 			case EAST:
+				Study();
 				currentLocation = STUDY;
 				break;
 			case STUDY:
+				Study();
 				currentLocation = STUDY;
 				break;
 			case STAIRS:
+				artMuseum();
 				currentLocation = ART_MUSEUM;
 				break;
 			case DOWNSTAIRS:
+				artMuseum();
+				currentLocation = ART_MUSEUM;
+				break;
+			case ART_MUSEUM:
+				artMuseum();
 				currentLocation = ART_MUSEUM;
 				break;
 			default:
@@ -238,9 +257,19 @@ public class Location {
 	private void museumMove(String direction) {
 		switch (direction) {
 			case WEST:
+				Dungeon();
+				currentLocation = DUNGEON;
+				break;
+			case DUNGEON:
+				Dungeon();
 				currentLocation = DUNGEON;
 				break;
 			case NORTH:
+				storageRoom();
+				currentLocation = STORAGE;
+				break;
+			case STORAGE:
+				storageRoom();
 				currentLocation = STORAGE;
 				break;
 				/*
@@ -265,9 +294,19 @@ public class Location {
 	private void storageMove(String direction) {
 		switch (direction) {
 			case EAST:
+				artMuseum();
+				currentLocation = ART_MUSEUM;
+				break;
+			case ART_MUSEUM:
+				artMuseum();
 				currentLocation = ART_MUSEUM;
 				break;
 			case SOUTH:
+				Dungeon();
+				currentLocation = DUNGEON;
+				break;
+			case DUNGEON:
+				Dungeon();
 				currentLocation = DUNGEON;
 				break;
 			default:
@@ -279,10 +318,20 @@ public class Location {
 	private void dungeonMove(String direction) {
 		switch (direction) {
 			case EAST:
+				artMuseum();
+				currentLocation = ART_MUSEUM;
+				break;
+			case ART_MUSEUM:
+				artMuseum();
 				currentLocation = ART_MUSEUM;
 				break;
 			case NORTH:
-				currentLocation = DUNGEON;
+				storageRoom();
+				currentLocation = STORAGE;
+				break;
+			case STORAGE:
+				storageRoom();
+				currentLocation = STORAGE;
 				break;
 			default:
 				System.out.println("???");
@@ -330,7 +379,7 @@ public class Location {
 		System.out.println("You are standing in the Storage Room.");	
 	}
 	
-	public void dungeon() {
+	public void Dungeon() {
 		System.out.println("YOU HAVE ENTERED THE DUNGEON. BEWARE.");
 	}
 
