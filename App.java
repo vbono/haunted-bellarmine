@@ -6,19 +6,6 @@ public class App {
 	public static void main(String[] args) {
 		App app = new App();
 		app.process();
-		
-		/*
-		
-		Help help = new Help();
-		Location loc = new Location();
-		
-		help.helpMe();
-		*/
-		
-		//starting location
-		
-		
-		
 
 	}
 
@@ -38,9 +25,9 @@ public class App {
 		String name = s.nextLine();
 		
 		p1.setName(name);
-		System.out.println("Welcome to Haunted Bellarmine, " + name + ". You are standing on a brick path. \n"
-			+ "In front of you is a large mansion. To the east is a forest. \n"
-			+ "Type 'H' or 'Help' to get started.");
+		System.out.println("Welcome to Haunted Bellarmine, " + name + "! \n"
+				+ "You are standing on a brick path. In front of you is a large mansion. To the east is a forest. \n"
+				+ "Type 'H' or 'Help' to get started.");
 		
 		while(true) {
 			String command = s.nextLine();
