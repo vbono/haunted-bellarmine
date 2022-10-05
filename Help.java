@@ -7,8 +7,8 @@ public class Help {
 		System.out.println("I know everything. Well, I know a lot things. Like places, actions, and objects. To move\n"
 				+ "try keywords like EAST, WEST, NORTH, SOUTH, UP, DOWN, ENTER, etc. Some objects require\n"
 				+ "actions like TAKE, DROP, USE. Type INVENTORY or INV to check your inventory. \n"
-				+ "Good luck! \n"
-				+ "type MAP for a map");
+				+ "Type LOCATION to get your current location, or type MAP to see a map. \n"
+				+ "Good luck!");
 		
 	}
 	
