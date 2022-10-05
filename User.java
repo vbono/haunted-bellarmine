@@ -1,14 +1,27 @@
 package g1s1Package;
-import java.util.Scanner;
 
 public class User {
-	Scanner myScanner = new Scanner(System.in);
-	Location loc = new Location();
+	private String name;
+	private Location loc;
 	
-	public void currentLocation() {
-		
-		
-		
+	public User() {
+		loc = new Location();
+	}
+	
+	public String getLocation() {
+		return loc.currentLocation();
+	}
+	
+	public void move(String direction) {
+		loc.move(direction);
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name=name;
 	}
 	
 	
