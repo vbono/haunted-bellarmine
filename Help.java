@@ -43,7 +43,7 @@ public class Help {
 		System.out.println("|______________________|_________________________|");
 		System.out.println("                    |     |");
 		System.out.println("                   /       \\                               *");
-		System.out.println("                  (         )                             * *");
+		System.out.println("                  (  START  )                             * *");
 		System.out.println("                   \\       /  ");
 		
 		// add more things as u go
