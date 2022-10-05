@@ -1,20 +1,59 @@
+package g1s1Package;
+import java.util.Scanner;
 
 public class App {
-
+	
 	public static void main(String[] args) {
 		App app = new App();
 		app.process();
+		
+		/*
+		
+		Help help = new Help();
+		Location loc = new Location();
+		
+		help.helpMe();
+		*/
+		
+		//starting location
+		
+		
+		
 
 	}
 
 	/**
 	 * main interactive loop of program
+	 * @return 
 	 * 
 	 */
 
 	public void process() {
-
-		System.out.println("-- let's play! -- ");
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("-- let's play! -- \n");
+		User p1 = new User();
+		
+		System.out.println("What is your name?: ");
+		String name = s.nextLine();
+		
+		p1.setName(name);
+		System.out.println("Welcome to Haunted Bellarmine, " + name + ". Type 'H' or 'Help' to get started.");
+		
+		while(true) {
+			String command = s.nextLine();
+			
+			if (command.equalsIgnoreCase("h") || command.equalsIgnoreCase("help"))
+				Help.helpMe();
+			else if (command.equalsIgnoreCase("location"))
+				System.out.println(p1.getLocation());
+			else if (command.equalsIgnoreCase("map"))
+				Help.map();
+			else
+				p1.move(command);
+		}
+		
 
 	}
+
 }
