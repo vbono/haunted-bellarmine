@@ -25,6 +25,8 @@ public class Location {
 	private static final String BACK = "back";
 	private static final String UPSTAIRS = "upstairs";
 	
+	
+	
 	public Location() {
 		currentLocation = START;
 	}
@@ -339,6 +341,8 @@ public class Location {
 		
 	}
 	
+	// create new class for printable items, test if user inv has item to determine
+	// print output.
 	public void Start() {
 		System.out.println("You are standing on a brick path. In front of you is a \n"
 				+ "large mansion. To the east is a forest.");
@@ -349,7 +353,8 @@ public class Location {
 	
 	public void zenGarden() {
 		System.out.println("Welcome to the Zen Garden!! Calming music is playing.\n"
-						+ "There is a gentle stream flowing. And a bench. Have a rest.");
+						+ "There is a gentle stream flowing. And a bench. And a wand\n"
+						+ "laying on the bench. Have a rest.");
 	}
 	
 	public void Mansion() {
@@ -383,7 +388,9 @@ public class Location {
 		System.out.println("YOU HAVE ENTERED THE DUNGEON. BEWARE.");
 	}
 
-	
+	public void RetrievedItem() {
+		System.out.println("Nice! You have just added this to your inventory.");
+	}
 	
 
 }
