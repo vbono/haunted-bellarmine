@@ -1,36 +1,35 @@
-package milestone1package;
+package g1s1Package;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.Iterator;
 
-public class ScoreableItem {
-
+public class ScorableItem {
 	private Map<String, Integer> Items;
 	
-	public void displayCurrentItems() {
+	public ScorableItem() {
+		Items = new HashMap<>();
 		init();
-		iterator(Items);
-		
 	}
 	
-	public static void iterator(Map<String, Integer> Items) {
-		Iterator<Map.Entry<String, Integer>> it = Items.entrySet().iterator();
-		
+	public void displayCurrentItems() {
+
+		Iterator<String> it = Items.keySet().iterator();
 		while (it.hasNext()) {
-			Map.Entry<String, Integer> entry = it.next();
-			System.out.println("key = " + entry.getKey() + "value = " + entry.getValue());
+			String key = it.next();
+			System.out.println(key + ": " + Items.get(key));
 		}
 	}
-	
-	
-	public Integer getItem(String key) {
-		Integer value = Items.get(key);
-		Items.remove(key);
-		return value;
+
+	public int getItem(String key) {
+		int score = Items.get(key);
+		if (Items.containsKey(key))
+			Items.remove(key);
+		return score;
 	}
 	
 	private Map<String, Integer> init() {
-		Items.put("book", 5);
 		Items.put("wand", 10);
+		Items.put("book", 5);
 		Items.put("sword", 10);
 		Items.put("potion", 5);
 		Items.put("rob", 20);
@@ -38,4 +37,7 @@ public class ScoreableItem {
 		
 		return Items;
 	}
+	
+	
+
 }
