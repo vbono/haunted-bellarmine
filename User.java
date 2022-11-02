@@ -60,5 +60,9 @@ public class User {
 		System.out.println("Your current score is: " + score);
 	}
 	
+	public int returnScore() {
+		return score;
+	}
+	
 
 }
