@@ -73,7 +73,7 @@ public class App {
 					count = p1.getCount();
 				}
 			}
-			else if (command.equalsIgnoreCase("AWAKEN") && p1.getLocation()=="art museum" && p1.findItem("book") && p1.findItem("wand")) {
+			else if (command.equalsIgnoreCase("AWAKEN") && p1.getLocation()=="art museum2" && p1.findItem("book") && p1.findItem("wand")) {
 				p1.addToInventory("rob");
 				p1.getScore("rob");
 				score = p1.returnScore();
@@ -89,7 +89,7 @@ public class App {
 				score = p1.returnScore();
 				System.out.println("It tastes better than you think.");
 			}
-			else if (command.equalsIgnoreCase("take") && p1.getLocation()=="art museum" && p1.findItem("rob")) {
+			else if (command.equalsIgnoreCase("take") && p1.getLocation()=="art museum2" && p1.findItem("rob")) {
 				p1.addToInventory("sword");
 				p1.getScore("sword");
 				p1.genericRetrieved();
@@ -108,13 +108,13 @@ public class App {
 					System.out.println("There is a wand lying on the bench. To pick it up, say 'take'.");
 				else if(p1.getLocation()=="study" && p1.findItem("book")==false)
 					p1.intermittent();
-				else if(p1.getLocation()=="art museum" && p1.findItem("rob")==false)
+				else if(p1.getLocation()=="art museum2" && p1.findItem("rob")==false)
 					System.out.println("There is a statue of Robert Bellarmine in the corner. To wake him, use the \n"
 							+ "spell that you read about in the book.");
 				else if(p1.getLocation()=="storage room" && p1.findItem("potion")==false)
 					System.out.println("There is a chest that looks like the one Robert Bellarmine described. \n"
 							+ "Inside the chest is a vial of a green liquid. Say 'drink' to take this potion.");
-				else if(p1.getLocation()=="art museum" && p1.findItem("sword")==false && p1.findItem("rob") && p1.findItem("potion"))
+				else if(p1.getLocation()=="art museum2" && p1.findItem("sword")==false && p1.findItem("rob") && p1.findItem("potion"))
 					System.out.println("Robert Bellarmine presents a sword to aid you in your final quest. Take it from him. Good luck!"); 
 				else if(p1.getLocation()=="dungeon" && p1.findItem("slay")==false)
 					System.out.println("AHHH! There is a terrifying dragon in here!");
