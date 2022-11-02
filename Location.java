@@ -254,7 +254,7 @@ public class Location {
 				greatHall();
 				currentLocation = GREAT_HALL;
 				break;
-			case EAST:
+			case WEST:
 				Study();
 				currentLocation = STUDY;
 				break;
