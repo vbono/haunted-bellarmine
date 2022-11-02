@@ -7,12 +7,14 @@ public class User {
 	private ScorableItem si;
 	private ArrayList<String> inventory;
 	private int score;
+	private int count;
 	
 	public User() {
 		loc = new Location();
 		si = new ScorableItem();
 		inventory = new ArrayList<String>();
 		score = 0;
+		count = 0;
 	}
 	
 	public String getLocation() {
