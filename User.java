@@ -38,6 +38,9 @@ public class User {
 	
 	public void addToInventory(String item) {
 		inventory.add(item);
+	}
+	
+	public void genericRetrieved() {
 		loc.RetrievedItem();
 	}
 	
@@ -53,7 +56,9 @@ public class User {
 		
 	}
 	 	
-	
+	public void printScore() {
+		System.out.println("Your current score is: " + score);
+	}
 	
 
 }
