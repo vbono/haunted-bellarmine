@@ -107,7 +107,7 @@ public class App {
 				if (p1.getLocation()=="zen garden" && p1.findItem("wand")==false)
 					System.out.println("There is a wand lying on the bench. To pick it up, say 'take'.");
 				else if(p1.getLocation()=="study" && p1.findItem("book")==false)
-					System.out.println("There is a book sitting on the President's desk.");
+					p1.intermittent();
 				else if(p1.getLocation()=="art museum" && p1.findItem("rob")==false)
 					System.out.println("There is a statue of Robert Bellarmine in the corner. To wake him, use the \n"
 							+ "spell that you read about in the book.");
