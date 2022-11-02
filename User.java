@@ -64,5 +64,26 @@ public class User {
 		return score;
 	}
 	
+	public void intermittent() {
+		
+		
+		while(true) {
+			if (count%2==0 || count==0) {
+				System.out.println("There is a book sitting on the President's desk.");
+				count++;
+				break;
+			}
+			else {
+				System.out.println("Hey, wasn't there something here last time?");
+				count++;
+				break;
+			}
+		}
+	}
+	
+	public int getCount() {
+		return count;
+	}
+	
 
 }
