@@ -61,8 +61,8 @@ public class App {
 				System.out.println("You have added this to your inventory! The book has a chapter \n"
 						+ "describing a spell that can be used to wake the ghost of Robert Bellarmine. \n"
 						+ "In case you come across him, say 'AWAKEN' to speak with his ghost. \n
-						+ "The book also tells you that if you say 'NAMASTE', you get transported \n"
-						+ "to the zen garden, where something useful awaits. Give it a try!");
+						+ "The book also tells you that if you say 'NAMASTE' when you're in the Great Hall, \n"
+						+ "you get transported to the zen garden, where something useful awaits. Give it a try!");
 			}
 			else if (command.equalsIgnoreCase("AWAKEN") && p1.getLocation()=="art museum" && p1.findItem("book") && p1.findItem("wand")) {
 				p1.addToInventory("rob");
