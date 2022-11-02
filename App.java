@@ -55,14 +55,23 @@ public class App {
 				score = p1.returnScore();
 			}
 			else if (command.equalsIgnoreCase("take") && p1.getLocation()=="study") {
-				p1.addToInventory("book");
-				p1.getScore("book");
-				score = p1.returnScore();
-				System.out.println("You have added this to your inventory! The book has a chapter \n"
+				int count = p1.getCount();
+				
+				if (count%2!=0 || count==0) {
+					p1.addToInventory("book");
+					p1.getScore("book");
+					score = p1.returnScore();
+					count = p1.getCount();
+					System.out.println("You have added this to your inventory! The book has a chapter \n"
 						+ "describing a spell that can be used to wake the ghost of Robert Bellarmine. \n"
-						+ "In case you come across him, say 'AWAKEN' to speak with his ghost. \n
+						+ "In case you come across him, say 'AWAKEN' to speak with his ghost. \n"
 						+ "The book also tells you that if you say 'NAMASTE' when you're in the Great Hall, \n"
-						+ "you get transported to the zen garden, where something useful awaits. Give it a try!");
+						+ "you get transported to the Zen Garden, where something useful awaits. Give it a try!");
+				}
+				else {
+					System.out.println("There's nothing here to take!");
+					count = p1.getCount();
+				}
 			}
 			else if (command.equalsIgnoreCase("AWAKEN") && p1.getLocation()=="art museum" && p1.findItem("book") && p1.findItem("wand")) {
 				p1.addToInventory("rob");
