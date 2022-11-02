@@ -367,8 +367,7 @@ public class Location {
 	
 	public void zenGarden() {
 		System.out.println("Welcome to the Zen Garden!! Calming music is playing.\n"
-						+ "There is a gentle stream flowing. And a bench. And a wand\n"
-						+ "laying on the bench. Have a rest.");
+						+ "There is a gentle stream flowing. And a bench. Have a rest.");
 	}
 	
 	public void Mansion() {
