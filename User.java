@@ -38,6 +38,7 @@ public class User {
 	
 	public void addToInventory(String item) {
 		inventory.add(item);
+		loc.RetrievedItem();
 	}
 	
 	public boolean findItem(String item) {
