@@ -86,6 +86,16 @@ public class Location {
 				Forest();
 				currentLocation = FOREST;
 				break;
+			case NORTH:
+				Mansion();
+				currentLocation = MANSION;
+				break;
+			case EAST:
+				Forest();
+				currentLocation = FOREST;
+				break;
+			default:
+				System.out.println("There's nothing in this direction.");
 		}
 	}
 	
@@ -125,7 +135,7 @@ public class Location {
 				break;
 				*/
 			default:
-				System.out.println("???");
+				System.out.println("There's nothing in this direction.");
 		}
 		
 	}
@@ -144,8 +154,12 @@ public class Location {
 				Start();
 				currentLocation = START;
 				break;
+			case WEST:
+				Start();
+				currentLocation = START;
+				break;
 		default:
-			System.out.println("???");
+			System.out.println("There's nothing in this direction.");
 		}
 
 	}
@@ -161,7 +175,7 @@ public class Location {
 			currentLocation = FOREST;
 			break;
 		default:
-			System.out.println("???");
+			System.out.println("There's nothing in this direction.");
 		}
 	}
 
@@ -194,7 +208,7 @@ public class Location {
 				break;
 				*/
 			default:
-				System.out.println("???");
+				System.out.println("There's nothing in this direction.");
 		}
 	}
 	
@@ -217,7 +231,7 @@ public class Location {
 				currentLocation = STUDY;
 				break;
 			default:
-				System.out.println("???");
+				System.out.println("There's nothing in this direction.");
 		}
 	}
 	
@@ -252,7 +266,7 @@ public class Location {
 				currentLocation = ART_MUSEUM;
 				break;
 			default:
-				System.out.println("???");	
+				System.out.println("There's nothing in this direction.");	
 		}
 	}
 	
@@ -289,7 +303,7 @@ public class Location {
 				currentLocation = PRESIDENTS_HALL;
 				break;
 			default:
-				System.out.println("???");
+				System.out.println("There's nothing in this direction.");
 		}
 	}
 	
@@ -312,7 +326,7 @@ public class Location {
 				currentLocation = DUNGEON;
 				break;
 			default:
-				System.out.println("???");
+				System.out.println("There's nothing in this direction.");
 		}
 		
 	}
@@ -336,7 +350,7 @@ public class Location {
 				currentLocation = STORAGE;
 				break;
 			default:
-				System.out.println("???");
+				System.out.println("There's nothing in this direction.");
 		}
 		
 	}
