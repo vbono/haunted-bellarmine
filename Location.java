@@ -24,6 +24,7 @@ public class Location {
 	private static final String STAIRS = "stairs";
 	private static final String BACK = "back";
 	private static final String UPSTAIRS = "upstairs";
+	private static final String NAMASTE = "namaste";
 	
 	
 	
@@ -94,6 +95,10 @@ public class Location {
 				Forest();
 				currentLocation = FOREST;
 				break;
+			case NAMASTE:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
+				break;
 			default:
 				System.out.println("There's nothing in this direction.");
 		}
@@ -129,6 +134,10 @@ public class Location {
 				Study();
 				currentLocation = STUDY;
 				break;
+			case NAMASTE:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
+				break;
 				/*
 			case BACK:
 				currentLocation = START;
@@ -158,6 +167,10 @@ public class Location {
 				Start();
 				currentLocation = START;
 				break;
+			case NAMASTE:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
+				break;
 		default:
 			System.out.println("There's nothing in this direction.");
 		}
@@ -173,6 +186,10 @@ public class Location {
 		case FOREST:
 			Forest();
 			currentLocation = FOREST;
+			break;
+		case NAMASTE:
+			zenGarden();
+			currentLocation = ZEN_GARDEN;
 			break;
 		default:
 			System.out.println("There's nothing in this direction.");
@@ -202,6 +219,10 @@ public class Location {
 				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
+			case NAMASTE:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
+				break;
 			/*
 			case BACK:
 				currentLocation = MANSION;
@@ -229,6 +250,10 @@ public class Location {
 			case STUDY:
 				Study();
 				currentLocation = STUDY;
+				break;
+			case NAMASTE:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");
@@ -264,6 +289,10 @@ public class Location {
 			case ART_MUSEUM:
 				artMuseum();
 				currentLocation = ART_MUSEUM;
+				break;
+			case NAMASTE:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");	
@@ -302,6 +331,10 @@ public class Location {
 				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
+			case NAMASTE:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
+				break;
 			default:
 				System.out.println("There's nothing in this direction.");
 		}
@@ -324,6 +357,10 @@ public class Location {
 			case DUNGEON:
 				Dungeon();
 				currentLocation = DUNGEON;
+				break;
+			case NAMASTE:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");
@@ -348,6 +385,10 @@ public class Location {
 			case STORAGE:
 				storageRoom();
 				currentLocation = STORAGE;
+				break;
+			case NAMASTE:
+				zenGarden();
+				currentLocation = ZEN_GARDEN;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");
