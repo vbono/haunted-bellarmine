@@ -15,6 +15,7 @@ public class Location {
 	private static final String PRESIDENTS_HALL = "presidents hall";
 	private static final String DOWNSTAIRS = "downstairs";
 	private static final String ART_MUSEUM = "art museum";
+	private static final String ART_MUSEUM2 = "art museum2";
 	private static final String STORAGE = "storage room";
 	private static final String DUNGEON = "dungeon";
 	private static final String EAST = "east";
@@ -63,6 +64,9 @@ public class Location {
 				break;
 			case ART_MUSEUM:
 				museumMove(direction);
+				break;
+			case ART_MUSEUM2:
+				museumMove2(direction);
 				break;
 			case STORAGE:
 				storageMove(direction);
@@ -286,8 +290,8 @@ public class Location {
 				currentLocation = DUNGEON;
 				break;
 			case NORTH:
-				storageRoom();
-				currentLocation = STORAGE;
+				artMuseum2();
+				currentLocation = ART_MUSEUM2;
 				break;
 			case STORAGE:
 				storageRoom();
@@ -312,15 +316,32 @@ public class Location {
 		}
 	}
 	
-	private void storageMove(String direction) {
-		switch (direction) {
-			case EAST:
+	private void museumMove2(String direction) {
+		switch(direction) {
+			case SOUTH:
 				artMuseum();
 				currentLocation = ART_MUSEUM;
 				break;
+			case WEST:
+				storageRoom();
+				currentLocation = STORAGE;
+				break;
+			case STORAGE:
+				storageRoom();
+				currentLocation = STORAGE;
+				break;
+		}
+	}
+	
+	private void storageMove(String direction) {
+		switch (direction) {
+			case EAST:
+				artMuseum2();
+				currentLocation = ART_MUSEUM2;
+				break;
 			case ART_MUSEUM:
-				artMuseum();
-				currentLocation = ART_MUSEUM;
+				artMuseum2();
+				currentLocation = ART_MUSEUM2;
 				break;
 			case SOUTH:
 				Dungeon();
@@ -394,8 +415,12 @@ public class Location {
 	}
 	
 	public void artMuseum() {
-		System.out.println("You have entered the Art Museum. To your west "
-				+ "there are two rooms.");
+		System.out.println("You have entered the Art Museum. There's a room to the west,\n"
+				+ "but the museum is pretty big. Try going north.");
+	}
+	
+	public void artMuseum2() {
+		System.out.println("You are in the Art Museum. I told you it was a big room. There is a dusty door to the west.");
 	}
 	
 	public void storageRoom() {
