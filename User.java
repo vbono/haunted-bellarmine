@@ -14,15 +14,15 @@ public class User {
 		si = new ScorableItem();
 		inventory = new ArrayList<String>();
 		score = 0;
-		count = 0;
+		count=0;
 	}
 	
-	public String getLocation() {
+	public LocationNames getLocation() {
 		return loc.currentLocation();
 	}
 	
-	public void move(String direction) {
-		loc.move(direction);
+	public void move(Commands command) {
+		loc.move(command);
 	}
 	
 	public String getName() {
@@ -86,6 +86,5 @@ public class User {
 	public int getCount() {
 		return count;
 	}
-	
 
 }
