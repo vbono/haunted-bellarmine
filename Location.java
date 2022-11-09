@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class Location {
 	Scanner s = new Scanner(System.in);
 	
-	public String currentLocation;
+	//public String currentLocation;
+	public LocationNames currentLocation;
 	private static final String START = "start";
 	private static final String FOREST = "forest";
 	private static final String ZEN_GARDEN = "zen garden";
@@ -30,109 +31,110 @@ public class Location {
 	
 	
 	public Location() {
-		currentLocation = START;
+		currentLocation = LocationNames.START;
 	}
 	
-	public String currentLocation() {
+	public LocationNames currentLocation() {
 		return currentLocation;
 		
 	}
 	
-	public void move(String direction) {
+	public void move(Commands command) {
 		
 		switch (currentLocation) {
 			case START:
-				startMove(direction);
+				startMove(command);
 				break;
 			case MANSION:
-				mansionMove(direction);
+				mansionMove(command);
 				break;
 			case FOREST:
-				forestMove(direction);
+				forestMove(command);
 				break;
 			case ZEN_GARDEN:
-				zenGMove(direction);
+				zenGMove(command);
 				break;
 			case STUDY:
-				studyMove(direction);
+				studyMove(command);
 				break;
 			case GREAT_HALL:
-				greatHMove(direction);
+				greatHMove(command);
 				break;
 			case PRESIDENTS_HALL:
-				presidentsHMove(direction);
+				presidentsHMove(command);
 				break;
 			case ART_MUSEUM:
-				museumMove(direction);
+				museumMove(command);
 				break;
 			case ART_MUSEUM2:
-				museumMove2(direction);
+				museumMove2(command);
 				break;
 			case STORAGE:
-				storageMove(direction);
+				storageMove(command);
 				break;
 			case DUNGEON:
-				dungeonMove(direction);
+				dungeonMove(command);
 				break;
 			default:
 				System.out.println("Did you type your word correctly?");
 		}
 	}
 	
-	private void startMove(String direction) {
+	private void startMove(Commands command) {
 		//Start();
 		
-		switch (direction) {
+		switch (command) {
 			case MANSION:
 				Mansion();
-				currentLocation = MANSION;
+				currentLocation = LocationNames.MANSION;
 				break;
 			case FOREST:
 				Forest();
-				currentLocation = FOREST;
+				currentLocation = LocationNames.FOREST;
 				break;
 			case NORTH:
 				Mansion();
-				currentLocation = MANSION;
+				currentLocation = LocationNames.MANSION;
 				break;
 			case EAST:
 				Forest();
-				currentLocation = FOREST;
+				currentLocation = LocationNames.FOREST;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");
 		}
 	}
 	
-	private void mansionMove(String direction) {
+	private void mansionMove(Commands command) {
 		
-		switch (direction) {
+		switch (command) {
 			case EAST:
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
 				break;
 			case ROOM:
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
+				break;
 			case PRESIDENTS_HALL:
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
 				break;
 			case NORTH:
 				greatHall();
-				currentLocation = GREAT_HALL;
+				currentLocation = LocationNames.GREAT_HALL;
 				break;
 			case GREAT_HALL:
 				greatHall();
-				currentLocation = GREAT_HALL;
+				currentLocation = LocationNames.GREAT_HALL;
 				break;
 			case WEST:
 				Study();
-				currentLocation = STUDY;
+				currentLocation = LocationNames.STUDY;
 				break;
 			case STUDY:
 				Study();
-				currentLocation = STUDY;
+				currentLocation = LocationNames.STUDY;
 				break;
 				/*
 			case BACK:
@@ -145,23 +147,23 @@ public class Location {
 		
 	}
 	
-	private void forestMove(String direction) {
-		switch (direction) {
+	private void forestMove(Commands command) {
+		switch (command) {
 			case STAIRS:
 				zenGarden();
-				currentLocation = ZEN_GARDEN;
+				currentLocation = LocationNames.ZEN_GARDEN;
 				break;
 			case BACK:
 				Start();
-				currentLocation = START;
+				currentLocation = LocationNames.START;
 				break;
 			case START:
 				Start();
-				currentLocation = START;
+				currentLocation = LocationNames.START;
 				break;
 			case WEST:
 				Start();
-				currentLocation = START;
+				currentLocation = LocationNames.START;
 				break;
 		default:
 			System.out.println("There's nothing in this direction.");
@@ -169,15 +171,19 @@ public class Location {
 
 	}
 
-	private void zenGMove(String direction) {
-		switch (direction) {
+	private void zenGMove(Commands command) {
+		switch (command) {
 		case BACK:
 			Forest();
-			currentLocation = FOREST;
+			currentLocation = LocationNames.FOREST;
 			break;
 		case FOREST:
 			Forest();
-			currentLocation = FOREST;
+			currentLocation = LocationNames.FOREST;
+			break;
+		case NAMASTE:
+			greatHall();
+			currentLocation = LocationNames.GREAT_HALL;
 			break;
 		default:
 			System.out.println("There's nothing in this direction.");
@@ -185,27 +191,27 @@ public class Location {
 	}
 
 	
-	private void studyMove(String direction) {
-		switch (direction) {
+	private void studyMove(Commands command) {
+		switch (command) {
 			case GREAT_HALL:
 				greatHall();
-				currentLocation = GREAT_HALL;
+				currentLocation = LocationNames.GREAT_HALL;
 				break;
 			case NORTH:
 				greatHall();
-				currentLocation = GREAT_HALL;
+				currentLocation = LocationNames.GREAT_HALL;
 				break;
 			case ROOM:
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
 				break;
 			case PRESIDENTS_HALL:
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
 				break;
 			case EAST:
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
 				break;
 			/*
 			case BACK:
@@ -217,139 +223,142 @@ public class Location {
 		}
 	}
 	
-	private void greatHMove(String direction) { 
-		switch (direction) {
+	private void greatHMove(Commands command) { 
+		switch (command) {
 			case ROOM:
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
 				break;
 			case PRESIDENTS_HALL:
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
 				break;
 			case SOUTH:
 				Mansion();
-				currentLocation = MANSION;
+				currentLocation = LocationNames.MANSION;
 				break;
 			case STUDY:
 				Study();
-				currentLocation = STUDY;
+				currentLocation = LocationNames.STUDY;
 				break;
 			case NAMASTE:
 				zenGarden();
-				currentLocation = ZEN_GARDEN;
+				currentLocation = LocationNames.ZEN_GARDEN;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");
 		}
 	}
 	
-	private void presidentsHMove(String direction) {
-		switch (direction) {
+	private void presidentsHMove(Commands command) {
+		switch (command) {
 			case NORTH:
 				greatHall();
-				currentLocation = GREAT_HALL;
+				currentLocation = LocationNames.GREAT_HALL;
 				break;
 			case GREAT_HALL:
 				greatHall();
-				currentLocation = GREAT_HALL;
+				currentLocation = LocationNames.GREAT_HALL;
 				break;
-			case WEST:
+			case EAST:
 				Study();
-				currentLocation = STUDY;
+				currentLocation = LocationNames.STUDY;
 				break;
 			case STUDY:
 				Study();
-				currentLocation = STUDY;
+				currentLocation = LocationNames.STUDY;
 				break;
 			case STAIRS:
 				artMuseum();
-				currentLocation = ART_MUSEUM;
+				currentLocation = LocationNames.ART_MUSEUM;
 				break;
 			case DOWNSTAIRS:
 				artMuseum();
-				currentLocation = ART_MUSEUM;
+				currentLocation = LocationNames.ART_MUSEUM;
 				break;
 			case ART_MUSEUM:
 				artMuseum();
-				currentLocation = ART_MUSEUM;
+				currentLocation = LocationNames.ART_MUSEUM;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");	
 		}
 	}
 	
-	private void museumMove(String direction) {
-		switch (direction) {
+	private void museumMove(Commands command) {
+		switch (command) {
 			case WEST:
 				Dungeon();
-				currentLocation = DUNGEON;
+				currentLocation = LocationNames.DUNGEON;
 				break;
 			case DUNGEON:
 				Dungeon();
-				currentLocation = DUNGEON;
+				currentLocation = LocationNames.DUNGEON;
 				break;
 			case NORTH:
 				artMuseum2();
-				currentLocation = ART_MUSEUM2;
+				currentLocation = LocationNames.ART_MUSEUM2;
 				break;
+				/*
 			case STORAGE:
 				storageRoom();
 				currentLocation = STORAGE;
 				break;
-				/*
+				
 			case BACK:
 				presidentsHall();
 				currentLocation = PRESIDENTS_HALL;
 				break;
 				*/
-			case STAIRS:
+			case STAIRS: 
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
 				break;
 			case UPSTAIRS:
 				presidentsHall();
-				currentLocation = PRESIDENTS_HALL;
+				currentLocation = LocationNames.PRESIDENTS_HALL;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");
 		}
 	}
 	
-	private void museumMove2(String direction) {
-		switch(direction) {
+	private void museumMove2(Commands command) {
+		switch(command) {
 			case SOUTH:
 				artMuseum();
-				currentLocation = ART_MUSEUM;
+				currentLocation = LocationNames.ART_MUSEUM;
 				break;
 			case WEST:
 				storageRoom();
-				currentLocation = STORAGE;
+				currentLocation = LocationNames.STORAGE;
 				break;
 			case STORAGE:
 				storageRoom();
-				currentLocation = STORAGE;
+				currentLocation = LocationNames.STORAGE;
 				break;
+			default:
+				System.out.println("There's nothing in this direction.");
 		}
 	}
 	
-	private void storageMove(String direction) {
-		switch (direction) {
+	private void storageMove(Commands command) {
+		switch (command) {
 			case EAST:
 				artMuseum2();
-				currentLocation = ART_MUSEUM2;
+				currentLocation = LocationNames.ART_MUSEUM2;
 				break;
 			case ART_MUSEUM:
 				artMuseum2();
-				currentLocation = ART_MUSEUM2;
+				currentLocation = LocationNames.ART_MUSEUM2;
 				break;
 			case SOUTH:
 				Dungeon();
-				currentLocation = DUNGEON;
+				currentLocation = LocationNames.DUNGEON;
 				break;
 			case DUNGEON:
 				Dungeon();
-				currentLocation = DUNGEON;
+				currentLocation = LocationNames.DUNGEON;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");
@@ -357,23 +366,23 @@ public class Location {
 		
 	}
 	
-	private void dungeonMove(String direction) {
-		switch (direction) {
+	private void dungeonMove(Commands command) {
+		switch (command) {
 			case EAST:
 				artMuseum();
-				currentLocation = ART_MUSEUM;
+				currentLocation = LocationNames.ART_MUSEUM;
 				break;
 			case ART_MUSEUM:
 				artMuseum();
-				currentLocation = ART_MUSEUM;
+				currentLocation = LocationNames.ART_MUSEUM;
 				break;
 			case NORTH:
 				storageRoom();
-				currentLocation = STORAGE;
+				currentLocation = LocationNames.STORAGE;
 				break;
 			case STORAGE:
 				storageRoom();
-				currentLocation = STORAGE;
+				currentLocation = LocationNames.STORAGE;
 				break;
 			default:
 				System.out.println("There's nothing in this direction.");
@@ -381,8 +390,7 @@ public class Location {
 		
 	}
 	
-	// create new class for printable items, test if user inv has item to determine
-	// print output.
+	
 	public void Start() {
 		System.out.println("You are standing on a brick path. In front of you is a \n"
 				+ "large mansion. To the east is a forest.");
@@ -434,6 +442,7 @@ public class Location {
 	public void RetrievedItem() {
 		System.out.println("Nice! You have just added this to your inventory.");
 	}
+	
 	
 
 }
