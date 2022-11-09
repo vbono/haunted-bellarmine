@@ -22,7 +22,7 @@ public class App {
 		User p1 = new User();
 		
 		System.out.println("What is your name?: ");
-		String name = s.nextLine();
+		String name = s.nextLine().toUpperCase();
 		
 		p1.setName(name);
 		System.out.println("Welcome to Haunted Bellarmine, " + name + "! \n"
@@ -32,29 +32,34 @@ public class App {
 		int score = p1.returnScore();
 		
 		while(score<51) {
-			String command = s.nextLine();
+			Commands command = s.nextLine().toLowerCase();
 			
-			if (command.equalsIgnoreCase("h") || command.equalsIgnoreCase("help"))
+			// https://stackoverflow.com/questions/9578986/java-and-enum-with-scanner
+			
+			/* add all string commands to Commands.java
+			 * find if equal to Commands.command (change per each command)
+			 */
+			if (command.equals("h") || command.equals("help"))
 				Help.helpMe();
-			else if (command.equalsIgnoreCase("quit")) {
+			else if (command.equals("quit")) {
 				System.out.println("Ok, see ya next time!");
 				break;
 			}
-			else if (command.equalsIgnoreCase("location"))
+			else if (command.equals("location"))
 				System.out.println(p1.getLocation());
-			else if (command.equalsIgnoreCase("map"))
+			else if (command.equals("map"))
 				Help.map();
-			else if (command.equalsIgnoreCase("inventory"))
+			else if (command.equals("inventory"))
 				p1.getInventory();
-			else if (command.equalsIgnoreCase("score"))
+			else if (command.equals("score"))
 				p1.printScore();
-			else if (command.equalsIgnoreCase("take") && p1.getLocation()=="zen garden") {
+			else if (command.equals("take") && p1.getLocation()==LocationNames.ZEN_GARDEN) {
 				p1.getScore("wand");
 				p1.addToInventory("wand");
 				p1.genericRetrieved();
 				score = p1.returnScore();
 			}
-			else if (command.equalsIgnoreCase("take") && p1.getLocation()=="study") {
+			else if (command.equals("take") && p1.getLocation()==LocationNames.STUDY) {
 				int count = p1.getCount();
 				
 				if (count%2!=0 || count==0) {
@@ -73,7 +78,7 @@ public class App {
 					count = p1.getCount();
 				}
 			}
-			else if (command.equalsIgnoreCase("AWAKEN") && p1.getLocation()=="art museum2" && p1.findItem("book") && p1.findItem("wand")) {
+			else if (command.equals("awaken") && p1.getLocation()==LocationNames.ART_MUSEUM2 && p1.findItem("book") && p1.findItem("wand")) {
 				p1.addToInventory("rob");
 				p1.getScore("rob");
 				score = p1.returnScore();
@@ -83,48 +88,47 @@ public class App {
 						+ "the potion, Robert says he will give you the final tool you will need \n"
 						+ "to complete your quest.");
 			}
-			else if (command.equalsIgnoreCase("drink") && p1.getLocation()=="storage room") {
+			else if (command.equals("drink") && p1.getLocation()==LocationNames.STORAGE) {
 				p1.addToInventory("potion");
 				p1.getScore("potion");
 				score = p1.returnScore();
 				System.out.println("It tastes better than you think.");
 			}
-			else if (command.equalsIgnoreCase("take") && p1.getLocation()=="art museum2" && p1.findItem("rob")) {
+			else if (command.equals("take") && p1.getLocation()==LocationNames.ART_MUSEUM2 && p1.findItem("rob")) {
 				p1.addToInventory("sword");
 				p1.getScore("sword");
 				p1.genericRetrieved();
 				score = p1.returnScore();
 			}
-			else if (command.equalsIgnoreCase("slay") && p1.getLocation()=="dungeon" && p1.findItem("sword") && p1.findItem("potion")) {
+			else if (command.equals("slay") && p1.getLocation()==LocationNames.DUNGEON && p1.findItem("sword") && p1.findItem("potion")) {
 				p1.addToInventory("slay");
 				p1.getScore("slay");
 				score = p1.returnScore();
-				//break;
 			}
 			else {
 				p1.move(command);
 				
-				if (p1.getLocation()=="zen garden" && p1.findItem("wand")==false)
+				if (p1.getLocation()==LocationNames.ZEN_GARDEN && p1.findItem("wand")==false)
 					System.out.println("There is a wand lying on the bench. To pick it up, say 'take'.");
-				else if(p1.getLocation()=="study" && p1.findItem("book")==false)
+				else if(p1.getLocation()==LocationNames.STUDY && p1.findItem("book")==false)
 					p1.intermittent();
-				else if(p1.getLocation()=="art museum2" && p1.findItem("rob")==false)
+				else if(p1.getLocation()==LocationNames.ART_MUSEUM2 && p1.findItem("rob")==false)
 					System.out.println("There is a statue of Robert Bellarmine in the corner. To wake him, use the \n"
 							+ "spell that you read about in the book.");
-				else if(p1.getLocation()=="storage room" && p1.findItem("potion")==false)
+				else if(p1.getLocation()==LocationNames.STORAGE && p1.findItem("potion")==false)
 					System.out.println("There is a chest that looks like the one Robert Bellarmine described. \n"
 							+ "Inside the chest is a vial of a green liquid. Say 'drink' to take this potion.");
-				else if(p1.getLocation()=="art museum2" && p1.findItem("sword")==false && p1.findItem("rob") && p1.findItem("potion"))
+				else if(p1.getLocation()==LocationNames.ART_MUSEUM2 && p1.findItem("sword")==false && p1.findItem("rob") && p1.findItem("potion"))
 					System.out.println("Robert Bellarmine presents a sword to aid you in your final quest. Take it from him. Good luck!"); 
-				else if(p1.getLocation()=="dungeon" && p1.findItem("slay")==false)
+				else if(p1.getLocation()==LocationNames.DUNGEON && p1.findItem("slay")==false)
 					System.out.println("AHHH! There is a terrifying dragon in here!");
 			}
 			
 		}
 		if (score>50)
-			System.out.println("You have successfully slain the dragon! Congratulations!");
+			System.out.println("You have successfully slain the dragon! Congratulations!\n"
+					+ "Play again soon.");
 		
-		// add prompts for items
 
 	}
 
