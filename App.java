@@ -31,6 +31,34 @@ public class App {
 		
 		int score = p1.returnScore();
 		
+				while(score<51) {
+			Commands command = Commands.valueOf(s.nextLine().toLowerCase());
+			
+			switch(command) {
+			
+			case HELP:
+				Help.helpMe();
+				break;
+			case MAP:
+				Help.map();
+				break;
+			case LOCATION:
+				System.out.println(p1.getLocation());
+				break;
+			case SCORE:
+				p1.printScore();
+				break;
+			case QUIT:
+				System.out.println("Ok, see ya next time!");
+				break;
+			}
+			
+		}
+		
+		
+		
+		
+		/*
 		while(score<51) {
 			Commands command = s.nextLine().toLowerCase();
 			
@@ -125,6 +153,7 @@ public class App {
 			}
 			
 		}
+	*/
 		if (score>50)
 			System.out.println("You have successfully slain the dragon! Congratulations!\n"
 					+ "Play again soon.");
