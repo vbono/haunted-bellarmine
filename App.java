@@ -76,6 +76,9 @@ public class App {
 						score = p1.returnScore();
 						sword.objectCollected();
 					}
+					else {
+						p1.notQuite();
+					}
 					break;
 				case AWAKEN:
 					if (p1.getLocation()==LocationNames.ART_MUSEUM2 && p1.findItem("book") && p1.findItem("wand")) {
@@ -83,6 +86,9 @@ public class App {
 						p1.getScore(rob.getName());
 						score = p1.returnScore();
 						rob.objectCollcted();
+					}
+					else {
+						p1.notQuite();
 					}
 					break;
 				case DRINK:
@@ -92,12 +98,18 @@ public class App {
 						score = p1.returnScore();
 						potion.objectCollcted();
 					}
+					else {
+						p1.notQuite();
+					}
 					break;
 				case SLAY:
 					if (p1.getLocation()==LocationNames.DUNGEON && p1.findItem("sword") && p1.findItem("potion")) {
 						p1.addToInventory("slay");
 						p1.getScore("slay");
 						score = p1.returnScore();
+					}
+					else {
+						p1.notQuite();
 					}
 					break;
 				default:
