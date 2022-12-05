@@ -5,8 +5,8 @@ public class Help {
 	public static void helpMe() {
 		
 		System.out.println("I know everything. Well, I know a lot things. Like places, actions, and objects. To move\n"
-				+ "try keywords like EAST, WEST, NORTH, SOUTH, UP, DOWN, ENTER, etc. Some objects require\n"
-				+ "actions like TAKE, DROP, USE. Type INVENTORY or INV to check your inventory. \n"
+				+ "try keywords like EAST, WEST, NORTH, etc. Some objects require actions like TAKE. \n"
+				+ "Type INVENTORY to check your inventory and SCORE to check your score. \n"
 				+ "Type LOCATION to get your current location, or type MAP to see a map. \n"
 				+ "Good luck!");
 		
