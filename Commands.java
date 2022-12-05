@@ -2,7 +2,20 @@ package g1s1Package;
 
 public enum Commands {
 	
-	START, FOREST, ZEN_GARDEN, MANSION, STUDY, GREAT_HALL, ROOM, PRESIDENTS_HALL, DOWNSTAIRS, ART_MUSEUM, 
-	STORAGE, DUNGEON, EAST, WEST, NORTH, SOUTH, STAIRS, BACK, UPSTAIRS, NAMASTE 
+	EAST, WEST, NORTH, SOUTH, STAIRS, DOWNSTAIRS,
+	UPSTAIRS, NAMASTE, HELP, QUIT, LOCATION,
+	INVENTORY, MAP, SCORE, TAKE, AWAKEN, DRINK, SLAY;
+	
+	
+	public static ArrayList<Commands> CommandList() {
+		ArrayList<Commands> CommandList = new ArrayList<>();
+		
+		for (Commands c: Commands.values()) {
+			CommandList.add(c);
+		}
+		
+		return CommandList;
+		
+	}
 
 }
