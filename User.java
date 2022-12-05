@@ -19,10 +19,13 @@ public class User {
 		count = 0;
 	}
 	
+	//returns player's current location
 	public LocationNames getLocation() {
 		return loc.currentLocation();
 	}
 	
+	//employs the move method from Location to change player location
+	//prints description of item in that location if the player does not have it in their inventory
 	public void move(Commands command) {
 		loc.move(command);
 		
@@ -48,24 +51,28 @@ public class User {
 		return name;
 	}
 	
+	//sets the player's name
 	public void setName(String name) {
 		this.name=name;
 	}
 	
+	//adds value of item collected to player's score
 	public int getScore(String item) {
 		score += si.getItem(item);
 		return score;
 	}
 	
+	//adds item to inventory after player has collected it
 	public void addToInventory(String item) {
 		inventory.add(item);
 	}
 
-	
+	//prints out player's inventory
 	public void getInventory() {
 		System.out.println(inventory);;
 	}
 	
+	//tells if item is in player's inventory
 	public boolean findItem(String item) {
 		if(inventory.contains(item))
 			return true;
@@ -73,14 +80,17 @@ public class User {
 			return false;
 	}
 	
+	//prints out player's score
 	public void printScore() {
 		System.out.println("Your current score is: " + score);
 	}
 	
+	//returns player's score as an int
 	public int returnScore() {
 		return score;
 	}
 	
+	//every other time the player goes into the study, a book is sitting on the desk
 	public void intermittent() {
 		while(true) {
 			if (count%2==0 || count ==0) {
@@ -96,10 +106,7 @@ public class User {
 		}
 	}
 	
-	public int getCount() {
-		return count;
-	}
-	
+	//runs when a command is given but the requirements aren't met
 	public void notQuite() {
 		System.out.println("You don't have what you need yet. Try collecting some items first!");
 	}
