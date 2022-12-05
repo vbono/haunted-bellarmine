@@ -99,4 +99,8 @@ public class User {
 	public int getCount() {
 		return count;
 	}
+	
+	public void notQuite() {
+		System.out.println("You don't have what you need yet. Try collecting some items first!");
+	}
 }
