@@ -39,7 +39,9 @@ public class User {
 		else if(loc.currentLocation()==LocationNames.ART_MUSEUM2 && inventory.contains("sword")==false && inventory.contains("rob") && inventory.contains("potion"))
 			System.out.println("Robert Bellarmine presents a sword to aid you in your final quest. Take it from him. Good luck!"); 
 		else if(loc.currentLocation()==LocationNames.DUNGEON && inventory.contains("slay")==false)
-			System.out.println("AHHH! There is a terrifying dragon in here!");
+			System.out.println("AHHH! There is a terrifying dragon in here! \n"
+					+ "You need a sword to defeat the dragon. If you have it, try using words like \n"
+					+ "'defeat', 'attack', or 'slay'. One of them might work!");
 	}
 	
 	public String getName() {
