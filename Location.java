@@ -6,15 +6,17 @@ Scanner s = new Scanner(System.in);
 	
 	public LocationNames currentLocation;
 	
+	//constructor, initializes current location to start
 	public Location() {
 		currentLocation = LocationNames.START;
 	}
 	
+	//returns player's current location
 	public LocationNames currentLocation() {
 		return currentLocation;
-		
 	}
 	
+	//main move method, uses methods for each location to change current location
 	public void move(Commands command) {
 		
 		switch (currentLocation) {
@@ -75,6 +77,8 @@ Scanner s = new Scanner(System.in);
 				Default();
 		}
 	}
+	
+	//each location move method uses the command from the player to move and update the current location
 	
 	private void mansionMove(Commands command) {
 		
@@ -285,8 +289,8 @@ Scanner s = new Scanner(System.in);
 		
 	}
 	
-	// create new class for printable items, test if user inv has item to determine
-	// print output.
+	//prints in each location to tell user where they are
+	
 	public void Start() {
 		System.out.println("You are standing on a brick path. In front of you is a \n"
 				+ "large mansion. To the east is a forest.");
