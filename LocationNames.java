@@ -2,13 +2,8 @@ package milestone1package;
 
 public enum LocationNames {
 
-	START ("start"), FOREST ("forest"), ZEN_GARDEN ("zen garden"), MANSION ("manison"), STUDY ("study"), 
-	GREAT_HALL ("great hall"), ROOM ("room"), PRESIDENTS_HALL ("presidents hall"), DOWNSTAIRS ("downstairs"), 
-	ART_MUSEUM ("art museum"), ART_MUSEUM2 ("art musuem2"), STORAGE ("storage"), DUNGEON ("dungeon");
+	START, FOREST, ZEN_GARDEN, MANSION, STUDY, 
+	GREAT_HALL, ROOM, PRESIDENTS_HALL, DOWNSTAIRS, 
+	ART_MUSEUM, ART_MUSEUM2, STORAGE, DUNGEON;
 	
-	private final String loc;
-	
-	LocationNames(String loc) {
-		this.loc = loc;
-	}
 }
