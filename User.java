@@ -67,9 +67,26 @@ public class User {
 		inventory.add(item);
 	}
 
-	//prints out player's inventory
+	//gets player's inventory
 	public void getInventory() {
 		System.out.println(inventory);;
+	}
+	
+	//displays inventory when prompted, accordingly
+	public void displayInventory() {
+		
+		if (inventory.size() == 0)
+			System.out.println("There's nothing in your inventory yet. Go find some objects!");
+		else if (inventory.size() == 1) {
+			System.out.println("You have these items in your inventory: ");
+			for (String obj : inventory)
+				System.out.print(obj + " ");
+		}
+		else {
+			System.out.println("You have these items in your inventory: ");
+			for (String obj : inventory)
+				System.out.print(obj + ", ");
+		}
 	}
 	
 	//tells if item is in player's inventory
