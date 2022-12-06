@@ -7,7 +7,7 @@ public class Book extends Object {
 	}
 	
 	
-	public void objectCollcted() {
+	public void objectCollected() {
 		System.out.println("You grabbed the book!\n"
 				+ "The book has a chapter describing a spell that can be used to wake the ghost of Robert Bellarmine. \n"
 				+ "In case you come across him, say 'AWAKEN' to speak with his ghost. \n"
