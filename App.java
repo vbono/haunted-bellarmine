@@ -75,7 +75,7 @@ public class App {
 						p1.addToInventory(book.getName());
 						p1.getScore(book.getName());
 						score = p1.returnScore();
-						book.objectCollcted();
+						book.objectCollected();
 					}
 					else if (p1.getLocation()==LocationNames.ART_MUSEUM2 && p1.findItem("rob")) {
 						p1.addToInventory(sword.getName());
