@@ -1,41 +1,46 @@
-package milestone1package;
+package g1s1Package;
 import java.util.Scanner;
-//import milestone1package.Commands;
+
 
 public class App {
-	
 	public static void main(String[] args) {
 		App app = new App();
 		app.process();
-
 	}
+	
+
 
 	public void process() {
 		Scanner s = new Scanner(System.in);
 		
-		System.out.println("-- let's play! -- \n");
+		// create access to other classes/constant interface
 		User p1 = new User();
+		ConstantInterface c = new Constants();
 		Book book = new Book("book");
 		Wand wand = new Wand("wand");
 		Potion potion = new Potion("potion");
 		Rob rob = new Rob("rob");
 		Sword sword = new Sword("sword");
-		
-		System.out.println("What is your name?: ");
-		String name = s.nextLine().toUpperCase();
-		
+
+		//prints start message
+		c.startMessage();
+		// captures & sets name
+		String name = c.getName();
 		p1.setName(name);
-		System.out.println("Welcome to Haunted Bellarmine, " + name + ". You are standing on a brick path. \n"
-				+ "In front of you is a large mansion. To the east is a forest. \n"
-				+ "Type 'Help' to get started or trying moving around.");
+		//start game printouts
+		c.welcome(name);
+		c.Start();
+
 		
 		int score = p1.returnScore();
 		
-		
+		// user must collect all 50 points & slay dragon to beat the game
 		while(score<51) {
 			
 			String commandString = s.nextLine().toUpperCase();
 			
+			
+			// takes user command input and decides what to execute
 			if(Commands.CommandList().contains(commandString)) {
 			
 				Commands command = Commands.valueOf(commandString);
@@ -55,8 +60,10 @@ public class App {
 					p1.printScore();
 					break;
 				case QUIT:
-					System.out.println("Ok, see ya next time!");
+					c.quit(name);
 					return;
+					
+				// logic to deal with objects & inventory	
 				case TAKE:
 					if (p1.getLocation()==LocationNames.ZEN_GARDEN) {
 						p1.getScore(wand.getName());
@@ -124,8 +131,7 @@ public class App {
 		}
 		
 		if (score>50)
-			System.out.println("You have successfully slain the dragon! Congratulations! \n"
-					+ "Play again soon.");
+			c.endMessage(name);
 
 	}
 
