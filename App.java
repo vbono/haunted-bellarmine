@@ -56,6 +56,9 @@ public class App {
 				case LOCATION:
 					System.out.println(p1.getLocation());
 					break;
+				case INVENTORY:
+					p1.displayInventory();
+					break;
 				case SCORE:
 					p1.printScore();
 					break;
