@@ -9,7 +9,7 @@ public class Object {
 	}
 	
 	public void objectCollected() {
-		System.out.println("You have added this to your inventory!");
+		System.out.println("Nice! You just added this to your inventory.");
 	}
 	
 	public String getName() {
